@@ -41,7 +41,8 @@ const getPosts = async (req, res) => {
 const updatePost = async (req, res) => {
     try {
         // basic validaiton to check if the body is empty
-
+        // Update a post (Admin only)
+        
         // {name: x, description: y, age: z} -> [name, description, age]
         // {} = truthy 
         if(Object.keys(req.body).length === 0) {
@@ -69,6 +70,7 @@ const updatePost = async (req, res) => {
 }
 }
 
+// Delete a post (Admin only)
 const deletePost = async (req, res) => {
     try {
         const deleted = await Post.findByIdAndDelete(req.params.id);

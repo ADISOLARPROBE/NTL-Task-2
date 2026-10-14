@@ -29,7 +29,19 @@ const userSchema = new Schema(
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                 "Please enter a valid email address",],
 
+        },
+
+        role: {
+            type: String,
+            enum: ["user", "admin"],
+            default: "user"
+        },
+
+        refreshToken: {
+            type: String,
+            default: null
         }
+
             
     },
 
@@ -47,7 +59,7 @@ const userSchema = new Schema(
 
 // compare passwords
 userSchema.methods.comparePassword = async function (password) {
-    return await bcrypt.compare(password, this.password)
-}
+    return await bcrypt.compare(password, this.password);
+};
 
-export const User = mongoose.model("User", userSchema)
+export const User = mongoose.model("User", userSchema);
