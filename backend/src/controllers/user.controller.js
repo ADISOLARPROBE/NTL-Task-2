@@ -1,36 +1,38 @@
-import { User } from "../models/user.models.js";
+import { User } from "../models/user.model.js";
 
 const registerUser = async (req, res) => {
-    try {
-        const { username, password, email } = req.body;
+try {
+    const { username, email, password } = req.body;
 
-        //basic validation
+    // basic validation 
 
-        if (!username || !password || !email) {
-            return res.status(400).json({ message: "Please fill all fields" });
-        }
-
-        //check if user already exists
-        const existing  = await User.findOne({ email: email.toLowerCase() });
-        if (existing) {
-            return res.status(400).json({ message: "User already exists" });
-        }
-
-        // create new user
-        // small u- single user, big U- whole user base
-
-        const newUser = await User.create({
-            username,
-            password,
-            email: email.toLowerCase(),
-            loggedin: false,
-        });
-
-        res.status(201).json({ message: "User registered successfully", user: newUser._id, email: newUser.email, username: newUser.username });
-
-    } catch (error) {
-        res.status(500).json({ message: "Internal server error", error });
+    if (!username || !email || !password) {
+        return res.status(400).json({ message: "All fields are important!"})
     }
+
+    // check if user exists already
+
+    const existing = await User.findOne({ email: email.toLowerCase() });
+    if (existing) {
+        return res.status(400).json({ message: "user already exists!" });
+    }
+
+    // create user
+
+    const user = await User.create({
+        username,
+        email: email.toLowerCase(),
+        password,
+    });
+
+    res.status(201).json({
+        message: "User registered!",
+        user: { id: user._id, email: user.email, username: user.username }
+    });
+
+} catch (error) {
+    res.status(500).json({ message: "Internal server error", error: error.message });
+}
 };
 
 export { registerUser };
