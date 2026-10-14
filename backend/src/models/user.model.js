@@ -1,5 +1,5 @@
 import mongoose, { Schema} from "mongoose";
-
+import bcrypt from "bcryptjs";
 const userSchema = new Schema(
     {
         username: {
@@ -35,8 +35,17 @@ const userSchema = new Schema(
         { 
             timestamps: true,
         }
+    )
+        // before saving  any password we have to hash it and save it in the database
+     userSchema.pre("save", async function (next) {
+        if (!this.isModified("password")) return next();
+            this.password = await bcrypt.hash(this.password, 10);
 
+            next();
+     });
 
-)
-
-export const User = mongoose.model("User", userSchema);
+     //compare the password entered by the user with the hashed password in the database
+     userSchema.methods.comparePassword = async function (password) {
+        return await bcrypt.compare(password, this.password);
+     }
+export const User = mongoose.model("User", userSchema)
