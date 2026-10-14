@@ -1,0 +1,17 @@
+$kind: http-request
+url: http://localhost:4000/api/v1/posts/delete/6acfa8ed899f02f60861d31e
+method: DELETE
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"shreya\",\r
+
+    \    \"description\": \"a writer\",\r
+
+    \    \"age\": 18\r
+
+    }"
+order: 3000

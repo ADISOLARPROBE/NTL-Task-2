@@ -1,0 +1,7 @@
+$kind: http-request
+url: http://localhost:4000/api/v1/posts/getPosts
+method: GET
+body:
+  type: text
+  content: ""
+order: 2000

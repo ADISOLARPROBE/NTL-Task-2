@@ -1,0 +1,17 @@
+$kind: http-request
+url: http://localhost:4000/api/v1/posts/update/6acfa8ed899f02f60861d31e
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"shreya\",\r
+
+    \    \"description\": \"a writer\",\r
+
+    \    \"age\": 18\r
+
+    }"
+order: 4000
