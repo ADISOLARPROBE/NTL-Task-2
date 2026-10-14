@@ -4,12 +4,19 @@
   "description": "project",
   "license": "ISC",
   "author": "Aditya",
-  "type": "commonjs",
-  "main": "index.js",
-  "types": "module",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ADISOLARPROBE/NTL-Task-2.git"
+  },
+  
+"url": "https://github.com/ADISOLARPROBE/NTL-Task-2.git",
+"bugs": {"url": "https://github.com/ADISOLARPROBE/NTL-Task-2.git"},
+"homepage": "https://github.com/ADISOLARPROBE/NTL-Task-2.git",
+"main": "./backend/src/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "start": "node ./backend/src/index.js",
+    "dev": "nodemon ./backend/src/index.js"
   },
   "dependencies": {
     "dotenv": "^18.0.7",
