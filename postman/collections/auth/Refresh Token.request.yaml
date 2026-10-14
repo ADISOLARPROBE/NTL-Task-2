@@ -1,0 +1,7 @@
+$kind: http-request
+url: http://localhost:4000/api/v1/users/token
+method: POST
+body:
+  type: json
+  content: '{ "token": "<your_refreshToken>" }'
+order: 5000

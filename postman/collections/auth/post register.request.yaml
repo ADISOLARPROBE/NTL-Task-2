@@ -9,7 +9,9 @@ body:
 
     \  \"email\": \"aditya@gmail.com\",\r
 
-    \  \"password\": \"111111\"\r
+    \  \"password\": \"adi111\"\r
+
+    \  \"role\": \"user\"\r
 
     }"
 order: 1000
