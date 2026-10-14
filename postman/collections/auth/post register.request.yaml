@@ -5,13 +5,11 @@ body:
   type: json
   content: "{\r
 
-    \  \"fullName\": \"Aditya Pattanaik\",\r
-
-    \  \"email\": \"aditya@example.com\",\r
-
     \  \"username\": \"aditya123\",\r
 
-    \  \"password\": \"Test@123456\"\r
+    \  \"email\": \"aditya@gmail.com\",\r
+
+    \  \"password\": \"111111\"\r
 
     }"
 order: 1000
